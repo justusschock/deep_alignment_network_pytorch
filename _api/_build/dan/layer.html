@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Layers &mdash; Deep Alignment Network PyTorch 0.1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="utilities" href="utils.html" />
+    <link rel="prev" title="Stage" href="stage.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Deep Alignment Network PyTorch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../helen_example.html">Example</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="dan.html">Deep Alignment Network PyTorch</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="model.html">Model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="model.html#deepalignmentnetwork"><span class="hidden-section">DeepAlignmentNetwork</span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="stage.html">Stage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="stage.html#deepalignmentstage"><span class="hidden-section">DeepAlignmentStage</span></a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Layers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#affineimagetransformation"><span class="hidden-section">AffineImageTransformation</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#affinelandmarktransformation"><span class="hidden-section">AffineLandmarkTransformation</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#estimateaffineparams"><span class="hidden-section">EstimateAffineParams</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#heatmap"><span class="hidden-section">HeatMap</span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html">Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#adddanstagescallback"><span class="hidden-section">AddDanStagesCallback</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#create-optimizers-dan-whole-network"><span class="hidden-section">create_optimizers_dan_whole_network</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#create-optimizers-dan-per-stage"><span class="hidden-section">create_optimizers_dan_per_stage</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/justusschock/deep_alignment_network_pytorch">GitHub</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Deep Alignment Network PyTorch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../modules.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="dan.html">Deep Alignment Network PyTorch</a> &raquo;</li>
+        
+      <li>Layers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/_api/_build/dan/layer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="layers">
+<h1>Layers<a class="headerlink" href="#layers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="affineimagetransformation">
+<h2><span class="hidden-section">AffineImageTransformation</span><a class="headerlink" href="#affineimagetransformation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dan.layers.AffineImageTransformation">
+<em class="property">class </em><code class="descname">AffineImageTransformation</code><span class="sig-paren">(</span><em>img_size: tuple</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/layers/affine_image.html#AffineImageTransformation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.layers.AffineImageTransformation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.ext.autodoc.importer._MockObject</span></code></p>
+<p>Layer to transform an input image by a given affine transformation matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>img_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><em>tuple</em></a>) – the output image size</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dan.layers.AffineImageTransformation.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>input_image</em>, <em>affine_params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/layers/affine_image.html#AffineImageTransformation.forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.layers.AffineImageTransformation.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the actual transformation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>input_image</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a>) – the image which should be transformed</li>
+<li><strong>affine_params</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a>) – the affine transformation matrix (of shape Nx6)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the transformed image</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="affinelandmarktransformation">
+<h2><span class="hidden-section">AffineLandmarkTransformation</span><a class="headerlink" href="#affinelandmarktransformation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dan.layers.AffineLandmarkTransformation">
+<em class="property">class </em><code class="descname">AffineLandmarkTransformation</code><a class="reference internal" href="../../../_modules/dan/layers/affine_landmark.html#AffineLandmarkTransformation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.layers.AffineLandmarkTransformation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.ext.autodoc.importer._MockObject</span></code></p>
+<p>Layer to apply a given transformation matrix to a set of landmarks</p>
+<dl class="method">
+<dt id="dan.layers.AffineLandmarkTransformation.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>lmk_tensor</em>, <em>affine_tensor</em>, <em>inverse=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/layers/affine_landmark.html#AffineLandmarkTransformation.forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.layers.AffineLandmarkTransformation.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>the actual transformation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>lmk_tensor</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a>) – the landmarks to transform (of shape N x Num_landmarks x 2)</li>
+<li><strong>affine_tensor</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a>) – the transformation to apply (of shape N x 6)</li>
+<li><strong>inverse</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – whether to apply the given transformation or it’s inverse
+(the default is False)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the transformed landmarks</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="estimateaffineparams">
+<h2><span class="hidden-section">EstimateAffineParams</span><a class="headerlink" href="#estimateaffineparams" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dan.layers.EstimateAffineParams">
+<em class="property">class </em><code class="descname">EstimateAffineParams</code><span class="sig-paren">(</span><em>mean_shape</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/layers/estimate_param.html#EstimateAffineParams"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.layers.EstimateAffineParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.ext.autodoc.importer._MockObject</span></code></p>
+<p>Layer to estimate the parameters of an affine transformation matrix,
+which would transform the <code class="docutils literal notranslate"><span class="pre">mean_shape</span></code> into a given shape</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mean_shape</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a>) – The mean shape</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dan.layers.EstimateAffineParams.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>transformed_shape</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/layers/estimate_param.html#EstimateAffineParams.forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.layers.EstimateAffineParams.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>actual parameter estimation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>transformed_shape</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a>) – the target shape</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the estimated transformation matrix</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="heatmap">
+<h2><span class="hidden-section">HeatMap</span><a class="headerlink" href="#heatmap" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dan.layers.HeatMap">
+<em class="property">class </em><code class="descname">HeatMap</code><span class="sig-paren">(</span><em>img_size</em>, <em>patch_size</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/layers/heatmap_layer.html#HeatMap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.layers.HeatMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.ext.autodoc.importer._MockObject</span></code></p>
+<p>Layer to create a heatmap from a given set of landmarks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>img_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><em>tuple</em></a>) – the image size of the returned heatmap</li>
+<li><strong>patch_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – the patchsize to use</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dan.layers.HeatMap.draw_landmarks">
+<code class="descname">draw_landmarks</code><span class="sig-paren">(</span><em>landmarks</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/layers/heatmap_layer.html#HeatMap.draw_landmarks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.layers.HeatMap.draw_landmarks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws a group of landmarks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>landmarks</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a>) – the landmarks to draw (of shape Num_Landmarks x 2)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the heatmap containing all landmarks
+(of shape <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">x</span> <span class="pre">self.img_shape[0]</span> <span class="pre">x</span> <span class="pre">self.img_shape[1]</span></code>)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dan.layers.HeatMap.draw_lmk_helper">
+<code class="descname">draw_lmk_helper</code><span class="sig-paren">(</span><em>landmark</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/layers/heatmap_layer.html#HeatMap.draw_lmk_helper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.layers.HeatMap.draw_lmk_helper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws a single point only</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>landmark</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a>) – the landmarkto draw (of shape 1x2)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the heatmap containing one landmark
+(of shape <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">x</span> <span class="pre">self.img_shape[0]</span> <span class="pre">x</span> <span class="pre">self.img_shape[1]</span></code>)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dan.layers.HeatMap.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>landmark_batch</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/layers/heatmap_layer.html#HeatMap.forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.layers.HeatMap.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws all landmarks from one batch element in one heatmap</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>landmark_batch</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a>) – the landmarks to draw
+(of shape <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">x</span> <span class="pre">Num_landmarks</span> <span class="pre">x</span> <span class="pre">2</span></code>))</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a batch of heatmaps
+(of shape <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">x</span> <span class="pre">1</span> <span class="pre">x</span> <span class="pre">self.img_shape[0]</span> <span class="pre">x</span> <span class="pre">self.img_shape[1]</span></code>)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="utils.html" class="btn btn-neutral float-right" title="utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="stage.html" class="btn btn-neutral float-left" title="Stage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Justus Schock
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

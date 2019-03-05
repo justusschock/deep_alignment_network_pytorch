@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Model &mdash; Deep Alignment Network PyTorch 0.1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Stage" href="stage.html" />
+    <link rel="prev" title="Deep Alignment Network PyTorch" href="dan.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Deep Alignment Network PyTorch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../helen_example.html">Example</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="dan.html">Deep Alignment Network PyTorch</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#deepalignmentnetwork"><span class="hidden-section">DeepAlignmentNetwork</span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="stage.html">Stage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="stage.html#deepalignmentstage"><span class="hidden-section">DeepAlignmentStage</span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="layer.html">Layers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="layer.html#affineimagetransformation"><span class="hidden-section">AffineImageTransformation</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="layer.html#affinelandmarktransformation"><span class="hidden-section">AffineLandmarkTransformation</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="layer.html#estimateaffineparams"><span class="hidden-section">EstimateAffineParams</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="layer.html#heatmap"><span class="hidden-section">HeatMap</span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html">Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#adddanstagescallback"><span class="hidden-section">AddDanStagesCallback</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#create-optimizers-dan-whole-network"><span class="hidden-section">create_optimizers_dan_whole_network</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#create-optimizers-dan-per-stage"><span class="hidden-section">create_optimizers_dan_per_stage</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/justusschock/deep_alignment_network_pytorch">GitHub</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Deep Alignment Network PyTorch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../modules.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="dan.html">Deep Alignment Network PyTorch</a> &raquo;</li>
+        
+      <li>Model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/_api/_build/dan/model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="model">
+<h1>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="deepalignmentnetwork">
+<h2><span class="hidden-section">DeepAlignmentNetwork</span><a class="headerlink" href="#deepalignmentnetwork" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dan.model.DeepAlignmentNetwork">
+<em class="property">class </em><code class="descname">DeepAlignmentNetwork</code><span class="sig-paren">(</span><em>mean_shape</em>, <em>input_size=112</em>, <em>num_stages=1</em>, <em>p_dropout=0.5</em>, <em>patch_size=16</em>, <em>active_stages_begin=1</em>, <em>return_intermediate_lmks=True</em>, <em>norm_type='instance'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/model.html#DeepAlignmentNetwork"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.model.DeepAlignmentNetwork" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.ext.autodoc.importer._MockObject</span></code></p>
+<p>The actual deep alignment model holding all stages and the logic inbetween</p>
+<p class="rubric">References</p>
+<p><a class="reference external" href="https://github.com/MarekKowalski/DeepAlignmentNetwork">Original TensorFlow Implementation</a>
+<a class="reference external" href="https://arxiv.org/abs/1706.01789">Paper</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mean_shape</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a>) – the mean shape</li>
+<li><strong>input_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><em>tuple</em></a><em>, </em><em>optional</em>) – the size of the input images (the default is 112)</li>
+<li><strong>num_stages</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em>, </em><em>optional</em>) – the number of DeepAlignmentStages (the default is 1)</li>
+<li><strong>p_dropout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – the dropout probability (the default is 0.5)</li>
+<li><strong>patch_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em>, </em><em>optional</em>) – the patch size for heatmap generation (the default is 16)</li>
+<li><strong>active_stages_begin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em>, </em><em>optional</em>) – the active stages at the beginning (the default is 1)</li>
+<li><strong>return_intermediate_lmks</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – whether or not to return all landmarks from intermediate stages
+concatenated into one 4D tensor
+of shape N x NumStages x NumLandmarks x 2  (the default is True)</li>
+<li><strong>norm_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><em>optional</em>) – which kind of normalization to apply (the default is “instance”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="staticmethod">
+<dt id="dan.model.DeepAlignmentNetwork.closure">
+<em class="property">static </em><code class="descname">closure</code><span class="sig-paren">(</span><em>model: &lt;sphinx.ext.autodoc.importer._MockObject object at 0x7fc3b3a022b0&gt;</em>, <em>data_dict: dict</em>, <em>optimizers: dict</em>, <em>criterions={}</em>, <em>metrics={}</em>, <em>fold=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/model.html#DeepAlignmentNetwork.closure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.model.DeepAlignmentNetwork.closure" title="Permalink to this definition">¶</a></dt>
+<dd><p>closure method to do a single backpropagation step
+:param model: trainable model
+:type model: <code class="xref py py-class docutils literal notranslate"><span class="pre">ClassificationNetworkBasePyTorch</span></code>
+:param data_dict: dictionary containing the data
+:type data_dict: dict
+:param optimizers: dictionary of optimizers to optimize model’s parameters
+:type optimizers: dict
+:param criterions: dict holding the criterions to calculate errors</p>
+<blockquote>
+<div>(gradients from different criterions will be accumulated)</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>metrics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – dict holding the metrics to calculate</li>
+<li><strong>fold</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Current Fold in Crossvalidation (default: 0)</li>
+<li><strong>**kwargs</strong> – additional keyword arguments</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><ul class="simple">
+<li><em>dict</em> – Metric values (with same keys as input dict metrics)</li>
+<li><em>dict</em> – Loss values (with same keys as input dict criterions)</li>
+<li><em>list</em> – Arbitrary number of predictions as torch.Tensor</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AssertionError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AssertionError</span></code></a> – if optimizers or criterions are empty or the optimizers are not
+specified</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dan.model.DeepAlignmentNetwork.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>input_image</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/model.html#DeepAlignmentNetwork.forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.model.DeepAlignmentNetwork.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Feeds an input image through aall stages</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input_image</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a>) – the input image</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the returned landmarks of shape (N x NumStages x NumLandmarks x 2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="dan.model.DeepAlignmentNetwork.prepare_batch">
+<em class="property">static </em><code class="descname">prepare_batch</code><span class="sig-paren">(</span><em>data_dict</em>, <em>input_device</em>, <em>output_device</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/model.html#DeepAlignmentNetwork.prepare_batch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.model.DeepAlignmentNetwork.prepare_batch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pushes all batch entries to correct devices and converts to correct type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – the data dictionary</li>
+<li><strong>input_device</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">torch.device</span></code> or str) – the device for all network inputs</li>
+<li><strong>output_device</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">torch.device</span></code> or str) – the device for all network outputs and targets</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dictionary with converted data</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)">dict</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stage.html" class="btn btn-neutral float-right" title="Stage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dan.html" class="btn btn-neutral float-left" title="Deep Alignment Network PyTorch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Justus Schock
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dan.model &mdash; Deep Alignment Network PyTorch 0.1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Deep Alignment Network PyTorch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../helen_example.html">Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_api/_build/modules.html">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../_api/_build/dan/dan.html">Deep Alignment Network PyTorch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_api/_build/dan/model.html">Model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_api/_build/dan/model.html#deepalignmentnetwork"><span class="hidden-section">DeepAlignmentNetwork</span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_api/_build/dan/stage.html">Stage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_api/_build/dan/stage.html#deepalignmentstage"><span class="hidden-section">DeepAlignmentStage</span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_api/_build/dan/layer.html">Layers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_api/_build/dan/layer.html#affineimagetransformation"><span class="hidden-section">AffineImageTransformation</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../_api/_build/dan/layer.html#affinelandmarktransformation"><span class="hidden-section">AffineLandmarkTransformation</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../_api/_build/dan/layer.html#estimateaffineparams"><span class="hidden-section">EstimateAffineParams</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../_api/_build/dan/layer.html#heatmap"><span class="hidden-section">HeatMap</span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_api/_build/dan/utils.html">Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_api/_build/dan/utils.html#adddanstagescallback"><span class="hidden-section">AddDanStagesCallback</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../_api/_build/dan/utils.html#create-optimizers-dan-whole-network"><span class="hidden-section">create_optimizers_dan_whole_network</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../_api/_build/dan/utils.html#create-optimizers-dan-per-stage"><span class="hidden-section">create_optimizers_dan_per_stage</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/justusschock/deep_alignment_network_pytorch">GitHub</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Deep Alignment Network PyTorch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>dan.model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for dan.model</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">.stage</span> <span class="k">import</span> <span class="n">DeepAlignmentStage</span>
+<span class="kn">from</span> <span class="nn">delira.models</span> <span class="k">import</span> <span class="n">AbstractPyTorchNetwork</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+
+<div class="viewcode-block" id="DeepAlignmentNetwork"><a class="viewcode-back" href="../../_api/_build/dan/model.html#dan.model.DeepAlignmentNetwork">[docs]</a><span class="k">class</span> <span class="nc">DeepAlignmentNetwork</span><span class="p">(</span><span class="n">AbstractPyTorchNetwork</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The actual deep alignment model holding all stages and the logic inbetween</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    `Original TensorFlow Implementation &lt;https://github.com/MarekKowalski/DeepAlignmentNetwork&gt;`_</span>
+<span class="sd">    `Paper &lt;https://arxiv.org/abs/1706.01789&gt;`_</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean_shape</span><span class="p">,</span> <span class="n">input_size</span><span class="o">=</span><span class="mi">112</span><span class="p">,</span> <span class="n">num_stages</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p_dropout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                 <span class="n">patch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">active_stages_begin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">return_intermediate_lmks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">norm_type</span><span class="o">=</span><span class="s2">&quot;instance&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        mean_shape : :class:`numpy.ndarray` or :class:`torch.Tensor`</span>
+<span class="sd">            the mean shape</span>
+<span class="sd">        input_size : int or tuple, optional</span>
+<span class="sd">            the size of the input images (the default is 112)</span>
+<span class="sd">        num_stages : int, optional</span>
+<span class="sd">            the number of DeepAlignmentStages (the default is 1)</span>
+<span class="sd">        p_dropout : float, optional</span>
+<span class="sd">            the dropout probability (the default is 0.5)</span>
+<span class="sd">        patch_size : int, optional</span>
+<span class="sd">            the patch size for heatmap generation (the default is 16)</span>
+<span class="sd">        active_stages_begin : int, optional</span>
+<span class="sd">            the active stages at the beginning (the default is 1)</span>
+<span class="sd">        return_intermediate_lmks : bool, optional</span>
+<span class="sd">            whether or not to return all landmarks from intermediate stages </span>
+<span class="sd">            concatenated into one 4D tensor </span>
+<span class="sd">            of shape N x NumStages x NumLandmarks x 2  (the default is True)</span>
+<span class="sd">        norm_type : str, optional</span>
+<span class="sd">            which kind of normalization to apply (the default is &quot;instance&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="k">assert</span> <span class="n">num_stages</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Stages must be an integer &gt;= 1&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stages</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">([</span><span class="n">DeepAlignmentStage</span><span class="p">(</span>
+            <span class="n">mean_shape</span><span class="p">,</span> <span class="n">input_size</span><span class="o">=</span><span class="n">input_size</span><span class="p">,</span> <span class="n">p_dropout</span><span class="o">=</span><span class="n">p_dropout</span><span class="p">,</span>
+            <span class="n">is_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">patch_size</span><span class="o">=</span><span class="n">patch_size</span><span class="p">,</span>
+            <span class="n">norm_type</span><span class="o">=</span><span class="n">norm_type</span><span class="p">)])</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_stages</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">DeepAlignmentStage</span><span class="p">(</span><span class="n">mean_shape</span><span class="p">,</span>
+                                                  <span class="n">input_size</span><span class="o">=</span><span class="n">input_size</span><span class="p">,</span>
+                                                  <span class="n">p_dropout</span><span class="o">=</span><span class="n">p_dropout</span><span class="p">,</span>
+                                                  <span class="n">is_first</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                                  <span class="n">patch_size</span><span class="o">=</span><span class="n">patch_size</span><span class="p">,</span>
+                                                  <span class="n">norm_type</span><span class="o">=</span><span class="n">norm_type</span><span class="p">))</span>
+
+        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">active_stages_begin</span> <span class="o">&lt;=</span> <span class="n">num_stages</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr_active_stages</span> <span class="o">=</span> <span class="n">active_stages_begin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">return_intermediate_lmks</span> <span class="o">=</span> <span class="n">return_intermediate_lmks</span>
+
+<div class="viewcode-block" id="DeepAlignmentNetwork.forward"><a class="viewcode-back" href="../../_api/_build/dan/model.html#dan.model.DeepAlignmentNetwork.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_image</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Feeds an input image through aall stages</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        input_image : :class:`torch.Tensor`</span>
+<span class="sd">            the input image</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :class:`torch.Tensor`</span>
+<span class="sd">            the returned landmarks of shape (N x NumStages x NumLandmarks x 2)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">prev_lmk</span><span class="p">,</span> <span class="n">prev_hidden</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">return_intermediate_lmks</span><span class="p">:</span>
+            <span class="n">intermediate_lmks</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_active_stages</span><span class="p">):</span>
+            <span class="n">prev_lmk</span><span class="p">,</span> <span class="n">prev_hidden</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="n">i</span><span class="p">](</span>
+                <span class="n">input_image</span><span class="p">,</span> <span class="n">prev_lmk</span><span class="p">,</span> <span class="n">prev_hidden</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">return_intermediate_lmks</span><span class="p">:</span>
+                <span class="n">intermediate_lmks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prev_lmk</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">return_intermediate_lmks</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">intermediate_lmks</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">prev_lmk</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DeepAlignmentNetwork.prepare_batch"><a class="viewcode-back" href="../../_api/_build/dan/model.html#dan.model.DeepAlignmentNetwork.prepare_batch">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">prepare_batch</span><span class="p">(</span><span class="n">data_dict</span><span class="p">,</span> <span class="n">input_device</span><span class="p">,</span> <span class="n">output_device</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Pushes all batch entries to correct devices and converts to correct type</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data_dict : dict</span>
+<span class="sd">            the data dictionary</span>
+<span class="sd">        input_device : :class:`torch.device` or str</span>
+<span class="sd">            the device for all network inputs</span>
+<span class="sd">        output_device : :class:`torch.device` or str</span>
+<span class="sd">            the device for all network outputs and targets</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            dictionary with converted data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span>
+                <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">input_device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">),</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span>
+                <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">output_device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+        <span class="p">}</span></div>
+
+<div class="viewcode-block" id="DeepAlignmentNetwork.closure"><a class="viewcode-back" href="../../_api/_build/dan/model.html#dan.model.DeepAlignmentNetwork.closure">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">closure</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">AbstractPyTorchNetwork</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                <span class="n">optimizers</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">criterions</span><span class="o">=</span><span class="p">{},</span> <span class="n">metrics</span><span class="o">=</span><span class="p">{},</span>
+                <span class="n">fold</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        closure method to do a single backpropagation step</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        model : :class:`ClassificationNetworkBasePyTorch`</span>
+<span class="sd">            trainable model</span>
+<span class="sd">        data_dict : dict</span>
+<span class="sd">            dictionary containing the data</span>
+<span class="sd">        optimizers : dict</span>
+<span class="sd">            dictionary of optimizers to optimize model&#39;s parameters</span>
+<span class="sd">        criterions : dict</span>
+<span class="sd">            dict holding the criterions to calculate errors</span>
+<span class="sd">            (gradients from different criterions will be accumulated)</span>
+<span class="sd">        metrics : dict</span>
+<span class="sd">            dict holding the metrics to calculate</span>
+<span class="sd">        fold : int</span>
+<span class="sd">            Current Fold in Crossvalidation (default: 0)</span>
+<span class="sd">        **kwargs:</span>
+<span class="sd">            additional keyword arguments</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            Metric values (with same keys as input dict metrics)</span>
+<span class="sd">        dict</span>
+<span class="sd">            Loss values (with same keys as input dict criterions)</span>
+<span class="sd">        list</span>
+<span class="sd">            Arbitrary number of predictions as torch.Tensor</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        AssertionError</span>
+<span class="sd">            if optimizers or criterions are empty or the optimizers are not</span>
+<span class="sd">            specified</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">assert</span> <span class="p">(</span><span class="n">optimizers</span> <span class="ow">and</span> <span class="n">criterions</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">optimizers</span><span class="p">,</span> \
+            <span class="s2">&quot;Criterion dict cannot be emtpy, if optimizers are passed&quot;</span>
+
+        <span class="n">loss_vals</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">metric_vals</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># choose suitable context manager:</span>
+        <span class="k">if</span> <span class="n">optimizers</span><span class="p">:</span>
+            <span class="n">context_man</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">enable_grad</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">context_man</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span>
+
+        <span class="k">with</span> <span class="n">context_man</span><span class="p">():</span>
+
+            <span class="n">inputs</span> <span class="o">=</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+            <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+
+            <span class="n">num_stages</span> <span class="o">=</span> <span class="n">preds</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_stages</span><span class="p">):</span>
+                <span class="n">loss_val</span> <span class="o">=</span> <span class="n">criterions</span><span class="p">[</span><span class="s2">&quot;points&quot;</span><span class="p">](</span>
+                    <span class="n">preds</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">])</span>
+
+                <span class="k">if</span> <span class="n">optimizers</span><span class="p">:</span>
+                    <span class="k">with</span> <span class="n">optimizers</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">_stage&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">scale_loss</span><span class="p">(</span>
+                            <span class="n">loss_val</span><span class="p">)</span> <span class="k">as</span> <span class="n">scaled_loss</span><span class="p">:</span>
+                        <span class="n">optimizers</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">_stage&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+                        <span class="n">scaled_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">retain_graph</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                        <span class="n">optimizers</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">_stage&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+                <span class="n">loss_vals</span><span class="p">[</span><span class="s2">&quot;point_error_</span><span class="si">%d</span><span class="s2">_stage&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">loss_val</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+
+                <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+                    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">metric_fn</span> <span class="ow">in</span> <span class="n">metrics</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="n">metric_vals</span><span class="p">[</span><span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;_</span><span class="si">%d</span><span class="s2">_stage&quot;</span> <span class="o">%</span>
+                                    <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">metric_fn</span><span class="p">(</span><span class="n">preds</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span>
+                                                       <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">])</span>
+                        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="p">(</span><span class="n">num_stages</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                            <span class="n">metric_vals</span><span class="p">[</span><span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;_final_stage&quot;</span><span class="p">]</span> <span class="o">=</span> \
+                                <span class="n">metric_vals</span><span class="p">[</span><span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;_</span><span class="si">%d</span><span class="s2">_stage&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">optimizers</span><span class="p">:</span>
+            <span class="n">eval_loss_vals</span><span class="p">,</span> <span class="n">eval_metrics_vals</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">loss_vals</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">eval_loss_vals</span><span class="p">[</span><span class="s2">&quot;val_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="o">=</span> <span class="n">loss_vals</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">metric_vals</span><span class="p">:</span>
+                <span class="n">eval_metrics_vals</span><span class="p">[</span><span class="s2">&quot;val_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="o">=</span> <span class="n">metric_vals</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+            <span class="n">loss_vals</span> <span class="o">=</span> <span class="n">eval_loss_vals</span>
+            <span class="n">metric_vals</span> <span class="o">=</span> <span class="n">eval_metrics_vals</span>
+
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="p">{</span><span class="o">**</span><span class="n">metric_vals</span><span class="p">,</span> <span class="o">**</span><span class="n">loss_vals</span><span class="p">}</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">({</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">val</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span>
+                                    <span class="s2">&quot;env_appendix&quot;</span><span class="p">:</span> <span class="s2">&quot;_</span><span class="si">%02d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">fold</span>
+                                    <span class="p">}})</span>
+
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">({</span><span class="s1">&#39;image_grid&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;images&quot;</span><span class="p">:</span> <span class="n">inputs</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;input_images&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;env_appendix&quot;</span><span class="p">:</span> <span class="s2">&quot;_</span><span class="si">%02d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">fold</span><span class="p">}})</span>
+
+        <span class="k">return</span> <span class="n">metric_vals</span><span class="p">,</span> <span class="n">loss_vals</span><span class="p">,</span> <span class="p">[</span><span class="n">preds</span><span class="p">]</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Justus Schock
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

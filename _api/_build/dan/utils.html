@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>utilities &mdash; Deep Alignment Network PyTorch 0.1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="Layers" href="layer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Deep Alignment Network PyTorch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../helen_example.html">Example</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="dan.html">Deep Alignment Network PyTorch</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="model.html">Model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="model.html#deepalignmentnetwork"><span class="hidden-section">DeepAlignmentNetwork</span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="stage.html">Stage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="stage.html#deepalignmentstage"><span class="hidden-section">DeepAlignmentStage</span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="layer.html">Layers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="layer.html#affineimagetransformation"><span class="hidden-section">AffineImageTransformation</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="layer.html#affinelandmarktransformation"><span class="hidden-section">AffineLandmarkTransformation</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="layer.html#estimateaffineparams"><span class="hidden-section">EstimateAffineParams</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="layer.html#heatmap"><span class="hidden-section">HeatMap</span></a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adddanstagescallback"><span class="hidden-section">AddDanStagesCallback</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-optimizers-dan-whole-network"><span class="hidden-section">create_optimizers_dan_whole_network</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-optimizers-dan-per-stage"><span class="hidden-section">create_optimizers_dan_per_stage</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/justusschock/deep_alignment_network_pytorch">GitHub</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Deep Alignment Network PyTorch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../modules.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="dan.html">Deep Alignment Network PyTorch</a> &raquo;</li>
+        
+      <li>utilities</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/_api/_build/dan/utils.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="utilities">
+<h1>utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="adddanstagescallback">
+<h2><span class="hidden-section">AddDanStagesCallback</span><a class="headerlink" href="#adddanstagescallback" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dan.utils.AddDanStagesCallback">
+<em class="property">class </em><code class="descname">AddDanStagesCallback</code><span class="sig-paren">(</span><em>epoch_freq</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/utils.html#AddDanStagesCallback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.utils.AddDanStagesCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.ext.autodoc.importer._MockObject</span></code></p>
+<p>Callback to frequently activate new stages (if available)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>epoch_freq</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – number of epochs to wait, before activating the next stage</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dan.utils.AddDanStagesCallback.at_epoch_end">
+<code class="descname">at_epoch_end</code><span class="sig-paren">(</span><em>trainer</em>, <em>epoch</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/utils.html#AddDanStagesCallback.at_epoch_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.utils.AddDanStagesCallback.at_epoch_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function which activates the next stage if the current epoch is
+<code class="docutils literal notranslate"><span class="pre">epoch_freq</span></code> epochs after activating the last one</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>trainer</strong> (<a class="reference external" href="https://justusschock.github.io/delira/_api/_build/delira/training/trainer.html#delira.training.PyTorchNetworkTrainer" title="(in delira v0.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">delira.training.PyTorchNetworkTrainer</span></code></a>) – the trainer holding the model</li>
+<li><strong>epoch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – the current epoch</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a dictionary with all updated values</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)">dict</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="create-optimizers-dan-whole-network">
+<h2><span class="hidden-section">create_optimizers_dan_whole_network</span><a class="headerlink" href="#create-optimizers-dan-whole-network" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="dan.utils.create_optimizers_dan_whole_network">
+<code class="descname">create_optimizers_dan_whole_network</code><span class="sig-paren">(</span><em>model: dan.model.DeepAlignmentNetwork</em>, <em>optim_cls</em>, <em>max_stages</em>, <em>**optim_params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/utils.html#create_optimizers_dan_whole_network"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.utils.create_optimizers_dan_whole_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates one optimizer containing all stages’ parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> (<a class="reference internal" href="model.html#dan.model.DeepAlignmentNetwork" title="dan.model.DeepAlignmentNetwork"><em>DeepAlignmentNetwork</em></a>) – the model, whose parameters should be optimized</li>
+<li><strong>optim_cls</strong> – the actual optimizer class</li>
+<li><strong>max_stages</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – the number of maximum stages to optimize</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dictionary containing the optimizer optimizers</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)">dict</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="create-optimizers-dan-per-stage">
+<h2><span class="hidden-section">create_optimizers_dan_per_stage</span><a class="headerlink" href="#create-optimizers-dan-per-stage" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="dan.utils.create_optimizers_dan_per_stage">
+<code class="descname">create_optimizers_dan_per_stage</code><span class="sig-paren">(</span><em>model: dan.model.DeepAlignmentNetwork</em>, <em>optim_cls</em>, <em>max_stages</em>, <em>**optim_params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/utils.html#create_optimizers_dan_per_stage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.utils.create_optimizers_dan_per_stage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates optimizers for differnt DAN stages</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> (<a class="reference internal" href="model.html#dan.model.DeepAlignmentNetwork" title="dan.model.DeepAlignmentNetwork"><em>DeepAlignmentNetwork</em></a>) – the model, whose parameters should be optimized</li>
+<li><strong>optim_cls</strong> – the actual optimizer class</li>
+<li><strong>max_stages</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – the number of maximum stages to optimize</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dictionary containing all optimizers</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)">dict</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="layer.html" class="btn btn-neutral float-left" title="Layers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Justus Schock
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
