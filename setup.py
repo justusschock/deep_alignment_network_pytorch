@@ -40,7 +40,7 @@ dan_version = find_version(os.path.join(os.path.dirname(__file__), "dan",
                                            "__init__.py"))
 
 setup(
-    name='deep_alignment',
+    name='deep-alignment-pytorch',
     version=dan_version,
     packages=find_packages(),
     url='https://github.com/justussschock/deep_alignment_network_pytorch',
