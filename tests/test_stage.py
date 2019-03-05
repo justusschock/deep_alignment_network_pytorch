@@ -3,8 +3,8 @@ import torch
 
 
 def test_stage():
-    for img_size in [56, 112, 224]:
-        for num_lmks in [12, 68, 156]:
+    for img_size in [112, 224]:
+        for num_lmks in [68]:
             mean_shape = torch.randint(img_size-1, (1, num_lmks, 2)).float()
             first_stage = DeepAlignmentStage(
                 mean_shape, input_size=(img_size, img_size))
