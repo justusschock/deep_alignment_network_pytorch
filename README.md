@@ -1,4 +1,5 @@
 # Deep Alignment Network PyTorch
+[![Build Status](https://travis-ci.com/justusschock/deep_alignment_network_pytorch.svg?branch=master)](https://travis-ci.com/justusschock/deep_alignment_network_pytorch) 
 
 This repository contains a [`delira`](https://github.com/justusschock/delira)-compatible implementation of the Deep Alignment Network.
 
