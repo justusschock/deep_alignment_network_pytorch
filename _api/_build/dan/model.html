@@ -201,7 +201,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>mean_shape</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a>) – the mean shape</li>
+<li><strong>mean_shape</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.1.post2 ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a>) – the mean shape</li>
 <li><strong>input_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><em>tuple</em></a><em>, </em><em>optional</em>) – the size of the input images (the default is 112)</li>
 <li><strong>num_stages</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em>, </em><em>optional</em>) – the number of DeepAlignmentStages (the default is 1)</li>
 <li><strong>p_dropout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – the dropout probability (the default is 0.5)</li>
@@ -218,7 +218,7 @@ of shape N x NumStages x NumLandmarks x 2  (the default is True)</li>
 </table>
 <dl class="staticmethod">
 <dt id="dan.model.DeepAlignmentNetwork.closure">
-<em class="property">static </em><code class="descname">closure</code><span class="sig-paren">(</span><em>model: &lt;sphinx.ext.autodoc.importer._MockObject object at 0x7fc3b3a022b0&gt;</em>, <em>data_dict: dict</em>, <em>optimizers: dict</em>, <em>criterions={}</em>, <em>metrics={}</em>, <em>fold=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/model.html#DeepAlignmentNetwork.closure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.model.DeepAlignmentNetwork.closure" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">closure</code><span class="sig-paren">(</span><em>model: &lt;sphinx.ext.autodoc.importer._MockObject object at 0x7fb472b493c8&gt;</em>, <em>data_dict: dict</em>, <em>optimizers: dict</em>, <em>criterions={}</em>, <em>metrics={}</em>, <em>fold=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dan/model.html#DeepAlignmentNetwork.closure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dan.model.DeepAlignmentNetwork.closure" title="Permalink to this definition">¶</a></dt>
 <dd><p>closure method to do a single backpropagation step
 :param model: trainable model
 :type model: <code class="xref py py-class docutils literal notranslate"><span class="pre">ClassificationNetworkBasePyTorch</span></code>
@@ -264,11 +264,11 @@ specified</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input_image</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a>) – the input image</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input_image</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.1.post2 ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a>) – the input image</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the returned landmarks of shape (N x NumStages x NumLandmarks x 2)</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.0a0+743fdbd ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch vmaster (1.0.1.post2 ))"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a></td>
 </tr>
 </tbody>
 </table>
