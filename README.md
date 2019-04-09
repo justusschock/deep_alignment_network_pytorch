@@ -5,7 +5,7 @@ This repository contains a [`delira`](https://github.com/justusschock/delira)-co
 
 The original implementation can be found [here](https://github.com/MarekKowalski/DeepAlignmentNetwork) and the paper is available on [arXiv](https://arxiv.org/abs/1706.01789)
 
-An example using the HELEN dataset can be found in the [notebooks](notebooks/felen_example.ipynb) folder.
+An example using the HELEN dataset can be found in the [notebooks](notebooks/helen_example.ipynb) folder.
 
 ## Installation
 
